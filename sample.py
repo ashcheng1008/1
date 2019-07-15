@@ -8,7 +8,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,StickerSendMessage
+    MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
 )
 
 app = Flask(__name__)
@@ -43,9 +43,14 @@ def handle_message(event):
     '''line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text))'''
-    message=StickerSendMessage(
+    '''message=StickerSendMessage(
         package_id='1',
         sticker_id='1'
+    )
+    line_bot_api.reply_message(event.reply_token,message)'''
+    message= ImageSendMessage(
+        original_content_url='https://images.app.goo.gl/5PC7mbKCCtmonn1LA'
+        preview_image_url='https://images.app.goo.gl/Kr86qb6hzkM2KVpG7'
     )
     line_bot_api.reply_message(event.reply_token,message)
 
