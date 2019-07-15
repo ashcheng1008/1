@@ -49,8 +49,8 @@ def handle_message(event):
     )
     line_bot_api.reply_message(event.reply_token,message)'''
     message= ImageSendMessage(
-        original_content_url='https://www.petmd.com/sites/default/files/Acute-Dog-Diarrhea-47066074/original.jpg',
-        preview_image_url='https://www.petmd.com/sites/default/files/Acute-Dog-Diarrhea-47066074/preview.jpg'
+        original_content_url='https://www.petmd.com/sites/default/files/Acute-Dog-Diarrhea-47066074.jpg',
+        preview_image_url='https://www.petmd.com/sites/default/files/Acute-Dog-Diarrhea-47066074.jpg'
     )
     line_bot_api.reply_message(event.reply_token,message)
 
