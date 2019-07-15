@@ -37,7 +37,7 @@ def callback():
     return 'OK'
 
 
-@handler.add(MessageEvent, message=StickerSendMessage)
+@handler.add(MessageEvent, ImageSendMessage)
 def handle_message(event):
     # 回應使用者輸入的話
     '''line_bot_api.reply_message(
@@ -49,7 +49,7 @@ def handle_message(event):
     )
     line_bot_api.reply_message(event.reply_token,message)'''
     message= ImageSendMessage(
-        original_content_url='https://images.app.goo.gl/5PC7mbKCCtmonn1LA'
+        original_content_url='https://images.app.goo.gl/5PC7mbKCCtmonn1LA',
         preview_image_url='https://images.app.goo.gl/Kr86qb6hzkM2KVpG7'
     )
     line_bot_api.reply_message(event.reply_token,message)
