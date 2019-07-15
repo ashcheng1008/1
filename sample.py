@@ -49,8 +49,8 @@ def handle_message(event):
     )
     line_bot_api.reply_message(event.reply_token,message)'''
     message = ImageSendMessage(
-        original_content_url='https://www.partyrama.co.uk/wp-content/uploads/2014/02/winnie-the-pooh-93cms-lifesize-cardboard-cutout-product-image.jpg',
-        preview_image_url='https://www.partyrama.co.uk/wp-content/uploads/2014/02/winnie-the-pooh-93cms-lifesize-cardboard-cutout-product-image.jpg'
+        original_content_url='https://static2.srcdn.com/wordpress/wp-content/uploads/2019/03/Naruto-Cover.jpg',
+        preview_image_url='https://static2.srcdn.com/wordpress/wp-content/uploads/2019/03/Naruto-Cover.jpg'
     )
     line_bot_api.reply_message(event.reply_token,message)
 
