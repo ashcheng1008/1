@@ -48,9 +48,9 @@ def handle_message(event):
         sticker_id='1'
     )
     line_bot_api.reply_message(event.reply_token,message)'''
-    message= ImageSendMessage(
-        original_content_url='https://www.petmd.com/sites/default/files/Acute-Dog-Diarrhea-47066074.jpg',
-        preview_image_url='https://www.petmd.com/sites/default/files/Acute-Dog-Diarrhea-47066074.jpg'
+    message = ImageSendMessage(
+        original_content_url='https://www.partyrama.co.uk/wp-content/uploads/2014/02/winnie-the-pooh-93cms-lifesize-cardboard-cutout-product-image.jpg',
+        preview_image_url='https://www.partyrama.co.uk/wp-content/uploads/2014/02/winnie-the-pooh-93cms-lifesize-cardboard-cutout-product-image.jpg'
     )
     line_bot_api.reply_message(event.reply_token,message)
 
