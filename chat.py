@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import random
 
 # 預設地址
-address = ''
+address = '台中市北區進化路587號'
 # 你的API_KEY
 GOOGLE_API_KEY = 'AIzaSyBKhoq1t6NEHtpbq2ANkrqa8ClnBCzbiWs'
 
@@ -19,10 +19,10 @@ lat = addressDoc['results'][0]['geometry']['location']['lat']
 lng = addressDoc['results'][0]['geometry']['location']['lng']
 
 # 取得店家資訊
-MedSearch = "https://www.google.com/maps/search/醫院/@24.8524406,121.2282846,14z/data=!3m1!4b1.format(GOOGLE_API_KEY, lat, lng)
+foodStoreSearch = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key={}&location={},{}&rankby=distance&type=restaurant&language=zh-TW".format(GOOGLE_API_KEY, lat, lng)
 
-clinicReq = requests.get(MedSearch)
-nearbyclinic_dict = foodReq.json()
+foodReq = requests.get(foodStoreSearch)
+nearbyRestaurants_dict = foodReq.json()
 
 top20Restaurants = nearbyRestaurants_dict["results"]
 res_num = (len(top20Restaurants)) 
