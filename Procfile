@@ -1,1 +1,1 @@
-web python sampe.py
+web python sample.py
