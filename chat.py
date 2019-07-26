@@ -10,10 +10,10 @@ address = ''
 # 你的API_KEY
 GOOGLE_API_KEY = 'AIzaSyBKhoq1t6NEHtpbq2ANkrqa8ClnBCzbiWs'
 
-if lineMessage[0:3]==“”:
+if lineMessage[0:3]=='':
   address=“”
   lineMes=lineMessage
-  if  lineMes[4:-1]==“”:
+  if  lineMes[4:-1]=='':
      address="台中市北區進化路587號"
   else:
     address=lineMes[4:-1]
