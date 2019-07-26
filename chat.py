@@ -1,9 +1,26 @@
-import requests
 import re
 import configparser
 import json
 from bs4 import BeautifulSoup
 import random
+from flask import Flask, request, abort
+import os
+
+from linebot import (
+    LineBotApi, WebhookHandler
+)
+from linebot.exceptions import (
+    InvalidSignatureError
+)
+from linebot.models import (
+    MessageEvent, TextMessage, TextSendMessage,
+)
+
+app = Flask(__name__)
+
+# 使用heroku的environment variables
+line_bot_api = LineBotApi(os.environ['CHANNEL_ACCESS_TOKEN'])
+handler = WebhookHandler(os.environ['CHANNEL_SECRET'])
 
 # 預設地址
 address = ''
