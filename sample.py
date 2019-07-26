@@ -40,18 +40,10 @@ def callback():
 @handler.add(MessageEvent, ImageSendMessage)
 def handle_message(event):
     # 回應使用者輸入的話
-    '''line_bot_api.reply_message(
+    line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))'''
-    '''message=StickerSendMessage(
-        package_id='1',
-        sticker_id='1'
-    )
-    line_bot_api.reply_message(event.reply_token,message)'''
-    message = ImageSendMessage(
-        original_content_url='https://static2.srcdn.com/wordpress/wp-content/uploads/2019/03/Naruto-Cover.jpg',
-        preview_image_url='https://static2.srcdn.com/wordpress/wp-content/uploads/2019/03/Naruto-Cover.jpg'
-    )
+        TextSendMessage(text=event.message.text))
+    
     line_bot_api.reply_message(event.reply_token,message)
 
 if __name__ == "__main__":
