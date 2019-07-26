@@ -10,13 +10,20 @@ address = ''
 # 你的API_KEY
 GOOGLE_API_KEY = 'AIzaSyBKhoq1t6NEHtpbq2ANkrqa8ClnBCzbiWs'
 
-addurl = 'https://maps.googleapis.com/maps/api/geocode/json?key={}&address={}&sensor=false'.format(GOOGLE_API_KEY,address)
+if lineMessage[0:3]==“”:
+  address=“”
+  lineMes=lineMessage
+  if  lineMes[4:-1]==“”:
+     address="台中市北區進化路587號"
+  else:
+    address=lineMes[4:-1]
+  addurl = 'https://maps.googleapis.com/maps/api/geocode/json?key={}&address={}&sensor=false'.format(GOOGLE_API_KEY,address)
 
 # 經緯度轉換
-addressReq = requests.get(addurl)
-addressDoc = addressReq.json()
-lat = addressDoc['results'][0]['geometry']['location']['lat']
-lng = addressDoc['results'][0]['geometry']['location']['lng']
+  addressReq = requests.get(addurl)
+  addressDoc = addressReq.json()
+  lat = addressDoc['results'][0]['geometry']['location']['lat']
+  lng = addressDoc['results'][0]['geometry']['location']['lng']
 
 # 取得店家資訊
 foodStoreSearch = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key={}&location={},{}&rankby=distance&type=restaurant&language=zh-TW".format(GOOGLE_API_KEY, lat, lng)
