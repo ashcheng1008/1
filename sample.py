@@ -39,10 +39,7 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 # 傳送訊息到 line
-  def reply_to_line(reply_text)
-    # 取得 reply token
-    reply_token = params['events'][0]['replyToken']
-    
+  def handle_message(event):
     # 設定回覆訊息
     message = {
         "type": "imagemap",
