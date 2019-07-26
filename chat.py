@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 import random
 
 # 預設地址
-address = '台中市北區'
+address = ''
 # 你的API_KEY
 GOOGLE_API_KEY = 'AIzaSyBKhoq1t6NEHtpbq2ANkrqa8ClnBCzbiWs'
 
