@@ -1,14 +1,15 @@
-if lineMessage[0:3]==“”:
+if lineMessage[0:3]==“看醫生”:
   address=“”
   lineMes=lineMessage
-if  lineMes[4:-1]==“”:
-else:
-  address=lineMes[4:-1]
-addurl=‘https://maps.googleapls.com/maps/api/getcode/json?key={}&address={}&sensor=false’.format(GOOGLE_API_KEY,address)
-addressReq=requests.get(addurl)
-addressDoc=addressReq.json()
-lat=addreeDoc[‘results’][0][‘geometry’][‘location’][‘lat’]
-lng=addreeDoc[‘results’][0][‘geometry’][‘location’][‘lng’]
+  if  lineMes[4:-1]==“”:
+      address="桃園市"
+  else:
+      address=lineMes[4:-1]
+  addurl=‘https://maps.googleapls.com/maps/api/getcode/json?key={}&address={}&sensor=false’.format(GOOGLE_API_KEY,address)
+  addressReq=requests.get(addurl)
+  addressDoc=addressReq.json()
+  lat=addreeDoc[‘results’][0][‘geometry’][‘location’][‘lat’]
+  lng=addreeDoc[‘results’][0][‘geometry’][‘location’][‘lng’]
 
 medsearch=‘https://maps.googleapls.com/maps/api/getcode/json?key={}&address={}&sensor=false’.format(GOOGLE_API_KEY,lat,lng)
 medReq=requests.get(medsearch)
