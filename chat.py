@@ -67,4 +67,21 @@ print(details)
 
  # 取得餐廳的 Google map 網址
 mapUrl = "https://www.google.com/maps/search/?api=1&query={lat},{long}&query_place_id={place_id}".format(lat=restaurant["geometry"]["location"]["lat"],long=restaurant["geometry"]["location"]["lng"],place_id=restaurant["place_id"])
-print(mapUrl)
+#print(mapUrl)
+buttons_template=TemplateSendMessage(
+alt_text=restaurant["name"],
+template=ButtonsTemplate(
+  thumbnail_image_url=thumbnail_image_url,
+  title=restaurant["name"],
+  text=details,
+  actions=[
+    URITemplateAction(
+      label='查看地圖',
+      uri=map_url
+    ),
+  ]
+)
+)
+
+line_bot_api.reply_message(event.reply_token,buttons_templates)
+Return 0
